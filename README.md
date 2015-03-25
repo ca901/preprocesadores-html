@@ -73,7 +73,9 @@ Atributos de estilo HTML se pueden poner a través de varias líneas como atribu
 
 Class and ID: . and #
 El signo de punto y el numeral son representativos de CSS. Se utilizan como métodos abreviados para especificar los atributos class e id de un elemento, respectivamente. Varios nombres de clases pueden especificarse en forma similar al CSS, encadenando los nombres de clase con puntos. Se colocan inmediatamente después de la etiqueta y antes un hash de atributos. Por ejemplo:
+<pre>
 %div#things   %span#rice Chicken Fried   %p.beans{ :food => 'true' } The magical fruit   %h1.class.otherclass#id La La La
+</pre>
 se compila:
 <pre>
 <div id='things'>   <span id='rice'>Chicken Fried</span>  
