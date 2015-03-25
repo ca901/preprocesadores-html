@@ -35,7 +35,9 @@ Usar Haml:
 
 Texto sin formato
 Una parte importante de cualquier documento HTML es su contenido, que es texto sin formato. Cualquier línea de Haml que es interpretado como algo más, es tomado como texto sin formato, y pasan sin modificarse. Por ejemplo:
+<pre>
 %gee   %whiz     Wow this is cool!
+</pre>
 Es completado como:
 <pre>
 <gee>   <whiz>     Wow this is cool!   </whiz> </gee>
