@@ -152,10 +152,11 @@ Analiza el texto filtrado con menos para producir la salida CSS. Este filtro se 
 
 
 Referencias:
-
+<pre>
 http://haml.info
 http://haml.info/docs.html
 http://haml.info/docs/yardoc/file.REFERENCE.html
+</pre>
 
 #Twig
 
