@@ -101,24 +101,32 @@ is compiled to:
 </pre>
 
 
-Filters
+##Filters
+
 Los dos puntos indican un filtro. Esto permite pasar un bloque de texto con sangría como entrada a otro programa de filtrado y añadir el resultado a la salida de Haml. La sintaxis es simplemente con dos puntos seguidos por el nombre del filtro. Por ejemplo:
+<pre>
 %p   :markdown     # Greetings      Hello, *World*
 se compila como:
 <p>   <h1>Greetings</h1>    <p>Hello, <em>World</em></p> </p>
-Los filtros podrían tener código de Ruby incorporado con #{}. Por ejemplo:
+</pre>
+
+Los filtros podrían tener código de Ruby incorporado con #{}. 
+Por ejemplo:
 - flavor = "raspberry" #content   :textile     I *really* prefer _#{flavor}_ jam.
 se compila como:
+<pre>
 <div id='content'>   <p>I <strong>really</strong> prefer <em>raspberry</em> jam.</p> </div>
+</pre>
 Estos son algunos de los filtros de Haml:
+
 :cdata 
 rodea el texto filtrado con etiquetas CDATA.
 
 :coffee
 compila el texto filtrado a Javascript usando Cofeescript. También puede hacer referencia a este filtro como  :coffeescript. Este filtro se implementa con Tilt.
 
-: css 
-rodea el texto con un filtro de <style> y opcionalmente con etiquetas CDATA . Se usa mucho para las líneas de CSS
+:css 
+rodea el texto con un filtro de <style></style> y opcionalmente con etiquetas CDATA . Se usa mucho para las líneas de CSS
 
 :javascript
 rodea el texto con un filtro de <script> y opcionalmente con etiquetas CDATA . Se usa mucho para las líneas de JS
