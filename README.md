@@ -28,9 +28,10 @@ Características:
 
 
 Usar Haml:
-	1. Como una herramienta de lineas de comando
-	2. Como un plugin de Ruby on Rails
-	3. Como un módulo independiente Rubí.
+
+1. Como una herramienta de lineas de comando
+2. Como un plugin de Ruby on Rails
+3. Como un módulo independiente Rubí.
 
 
 Texto sin formato
