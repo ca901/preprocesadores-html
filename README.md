@@ -165,3 +165,7 @@ Twig es un motor de plantillas construido en PHP. ¿Y qué es eso de un motor de
 A la hora de construir una página web solemos tener en cuenta evitar la duplicación de código en los controladores. ¿Pero qué pasa con los ficheros HTML? Si lo piensas, tienen toneladas de código duplicado, como pueden ser los menús inferior y superior, el sidebar lateral, la etiqueta <head> y todo su contenido, los ficheros js que incluimos al final de la plantilla… Cada página de nuestra web debe incluir todos esos elementos, y si no usamos un gestor de plantillas nos veremos obligados a copiarlos y pegarlos en cada una de nuestras páginas.
 
 Pues bien, Twig soluciona este problema permitiéndonos usar herencia en nuestras plantillas, de forma muy similar a cómo se hace en la programación orientada a objetos. Lo único que tenemos que hacer es identificar aquellos elementos de nuestra web que sean comunes a todas las páginas, para de esa forma separarlos en una plantilla propia, y luego diseñar el resto de plantillas simplemente heredando de la “plantilla padre”.
+
+##¿Cómo puedo eliminar la duplicación en HTML con Twig?
+
+Vamos a verlo en código. Lo primero que haremos será diseñar la plantilla que tendrá todos los elementos inmutables de nuestra web, a la que llamaré base.html.twig:
