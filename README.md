@@ -47,17 +47,29 @@ Es completado como:
 
 Atributos de estilo de HTML: ()
 Haml también apoya una sintaxis de atributo más concisa, menos la syntaxis de Ruby que esta basada en los atributos de HTML. Éstos son usados con paréntesis en vez de corchetes, como se muestra a continuación:
+<pre>
 %html(xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en")
+</pre>
 Las variables de Ruby pueden utilizarse omitiendo las comillas. Pueden utilizar variables locales o las variables de instancia. Por ejemplo:
+<pre>
 %a(title=@title href=href) Stuff
+</pre>
 Esto es igual a:
+<pre>
 %a{:title => @title, :href => href} Stuff
+</pre>
 Porque no hay comas separando los atributos, sin embargo, las expresiones más complicadas no están permitidas. Para los que tendrás que utilizar la sintaxis {}. Sin embargo, puede utilizar juntos dos sintaxis:
+<pre>
 %a(title=@title){:href => @link.href} Stuff
+</pre>
 Tambien se puede usar #{} para insertar expresiones complicadas en un atributo de estilo HTML:
+<pre>
 %span(class="widget_#{@widget.number}")
+</pre>
 Atributos de estilo HTML se pueden poner a través de varias líneas como atributos de hash-estilo:
+<pre>
 %script(type="text/javascript"         src="javascripts/script_#{2 + 7}")
+</pre>
 
 Class and ID: . and #
 El signo de punto y el numeral son representativos de CSS. Se utilizan como métodos abreviados para especificar los atributos class e id de un elemento, respectivamente. Varios nombres de clases pueden especificarse en forma similar al CSS, encadenando los nombres de clase con puntos. Se colocan inmediatamente después de la etiqueta y antes un hash de atributos. Por ejemplo:
