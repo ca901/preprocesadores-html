@@ -20,11 +20,11 @@ XML y HTML son formatos basados en la idea de un documento estructurado. Esa est
 
 Características:
 
-*Whitespace activo
-*Markup bien formateado
-*Sigue las convenciones CSS
-*Integra código Ruby
-*Implementa Rails templates con la extención .haml
+* Whitespace activo
+* Markup bien formateado
+* Sigue las convenciones CSS
+* Integra código Ruby
+* Implementa Rails templates con la extención .haml
 
 
 Usar Haml:
