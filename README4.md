@@ -14,7 +14,7 @@ Además, si trabajamos con diseñador, le resultará más sencillo modificar est
 
 La forma más sencilla de instalar Handlebars.js es descargar la última versión del proyecto en Github, que actualmente va por la beta 6 de la versión 1.0. La inclusión es similar a la que haríamos con cualquier script:
 
-####Ejemplos
+###Ejemplos
 
 Handlebars es realmente sencillo de usar y en los ejemplos que usaré para acompañar la explicación, veréis que la propia plantilla queda encapsulada en una etiqueta script con un tipo que el navegador no puede reconocer x-handlebars-template. Las variables y expresiones en Handlebars van encapsuladas entre dos llaves {{ y }}.
 
