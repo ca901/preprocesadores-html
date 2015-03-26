@@ -1,4 +1,3 @@
-
 #HAML
 HAML (HTML abstraction markup language) se basa en que el código sea bonito, simple y que acelere y simplifique la creación de código.
 Haml es un markup lenguage que se utiliza para escribir el código HTML de cualquier documento web sin el uso de código en línea. Haml funciona como un reemplazo para sistemas de plantillas de página en línea tales como PHP, ASP y ERB, el lenguaje de plantillas utilizado en mayoría Ruby on Rails. Sin embargo, Haml evita la necesidad de forma explícita la codificación HTML en la plantilla, porque él es sí mismo una descripción del HTML, con un código para generar contenido dinámico.
@@ -99,20 +98,28 @@ se compila como:
 </pre>
 
 La barra inclinada también pueden envolver con sangría secciones de código. Por ejemplo:
+<pre>
 /   %p This doesn't render...   %div     %h1 Because it's commented out!
+</pre>
 se compila como:
+
 <!--   <p>This doesn't render...</p>   <div>     <h1>Because it's commented out!</h1>   </div> -->
+
 
 
 Haml Comments: -#
 El guión seguido inmediatamente por el signo de número, significa un comentario silencioso. Cualquier texto que sigue a esto no es tomado en el documento resultante en absoluto. Por ejemplo:
+<pre>
 %p foo -# This is a comment %p bar
+</pre>
 is compiled to:
 <pre>
 <p>foo</p> <p>bar</p>
+</pre>
 También puede unir texto debajo de una observación silenciosa. Por ejemplo:
 %p foo -#   This won't be displayed     Nor will this                    Nor will this. %p bar
 is compiled to:
+<pre>
 <p>foo</p> <p>bar</p>
 </pre>
 
@@ -122,7 +129,9 @@ is compiled to:
 Los dos puntos indican un filtro. Esto permite pasar un bloque de texto con sangría como entrada a otro programa de filtrado y añadir el resultado a la salida de Haml. La sintaxis es simplemente con dos puntos seguidos por el nombre del filtro. Por ejemplo:
 <pre>
 %p   :markdown     # Greetings      Hello, *World*
+</pre>
 se compila como:
+<pre>
 <p>   <h1>Greetings</h1>    <p>Hello, <em>World</em></p> </p>
 </pre>
 
