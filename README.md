@@ -90,13 +90,12 @@ Esto es igual a:
 Se podría compilar como:
 <div class="article entry visible" id="Article_27">Gabba Hey</div>
 
-
 HTML Comments: /
 El carácter de barra inclinada, cuando se coloca al principio de la línea, envuelve todo el texto en un comentario de HTML. Por ejemplo:
 %peanutbutterjelly   / This is the peanutbutterjelly element   I like sandwiches!
 se compila como:
 <pre>
-	<peanutbutterjelly>   <!-- This is the peanutbutterjelly element -->   I like sandwiches! </peanutbutterjelly>
+    <peanutbutterjelly>   <!-- This is the peanutbutterjelly element -->   I like sandwiches! </peanutbutterjelly>
 </pre>
 
 La barra inclinada también pueden envolver con sangría secciones de código. Por ejemplo:
@@ -129,11 +128,16 @@ se compila como:
 
 Los filtros podrían tener código de Ruby incorporado con #{}. 
 Por ejemplo:
-- flavor = "raspberry" #content   :textile     I *really* prefer _#{flavor}_ jam.
+
+<pre>
+- flavor = "raspberry" #content   :textile     I *really* prefer _#{flavor}_ jam.-
+</pre>
+
 se compila como:
 <pre>
 <div id='content'>   <p>I <strong>really</strong> prefer <em>raspberry</em> jam.</p> </div>
 </pre>
+
 Estos son algunos de los filtros de Haml:
 
 :cdata 
@@ -143,19 +147,17 @@ rodea el texto filtrado con etiquetas CDATA.
 compila el texto filtrado a Javascript usando Cofeescript. También puede hacer referencia a este filtro como  :coffeescript. Este filtro se implementa con Tilt.
 
 :css 
-rodea el texto con un filtro de <style></style> y opcionalmente con etiquetas CDATA . Se usa mucho para las líneas de CSS
+rodea el texto con un filtro de "style" y opcionalmente con etiquetas CDATA . Se usa mucho para las líneas de CSS
 
 :javascript
-rodea el texto con un filtro de <script> y opcionalmente con etiquetas CDATA . Se usa mucho para las líneas de JS
+rodea el texto con un filtro de "script" y opcionalmente con etiquetas CDATA . Se usa mucho para las líneas de JS
 :less
 Analiza el texto filtrado con menos para producir la salida CSS. Este filtro se implementa con Tilt.
 
+####Referencias:
 
-Referencias:
-<pre>
 http://haml.info
+
 http://haml.info/docs.html
+
 http://haml.info/docs/yardoc/file.REFERENCE.html
-</pre>
-
-
