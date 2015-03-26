@@ -1,136 +1,140 @@
-#Handlebars 
+#Slim
+Slim es un lenguaje de plantillas, cuyo objetivo es reducir la sintaxis de las partes esenciales sin llegar a ser críptico.
 
-Handlebars es una extensión de Mustache.js que tiene más prestaciones y mejor rendimiento. Si alguna vez hiciste algún template en Mustache.js no hay problema peusto que es compatible con Handlebars. Mustache tiene muchas implementaciones en muchos lenguajes de programación y es usado en multitud de sitios. Si queréis, podéis descubrir un poco más sobre Mustache en su web en Github.
+El diseño inicial de Slim es lo que se ve en la página principal. Comenzó como un ejercicio para ver cuánto podría ser eliminada de una plantilla estándar HTML (<,>, etiquetas de cierre, etc ...). A medida que más personas se interesaron por Slim, la funcionalidad creció y también lo hizo la flexibilidad de la sintaxis.
 
-####¿Por qué un sistema de plantillas?
+Slim se esfuerzan por mantener la simplicidad, pero la definición no todo el mundo de una sintaxis legible es la misma. La documentación le mostrará las opciones.
 
-Un sistema de plantillas permite definir de manera muy sencilla una “plantilla” para datos que vas a mostrar en el navegador para ser más limpio y legible que el común método de concatenar cadenas de caracteres dentro de una matriz mientras recorres un objeto que acabas de recibir (o crear) del servidor.
+Slim utiliza Temple y Tilt. 
 
-¿Y qué es una plantilla en sí? Bueno, las plantillas son código del lado del cliente que tienen expresiones para que la plantilla pueda recibir un objeto o una colección de ellos para renderizarlos fácilmente en código HTML.
+####¿Por qué utilizar Slim?
 
-Además, si trabajamos con diseñador, le resultará más sencillo modificar estas plantillas sin tener que enredar con el propio código.
+Slim le permite escribir plantillas muy mínimos que son fáciles de mantener y prácticamente garantiza que usted escribe HTML bien formado y XML.
+También pensamos que la sintaxis Slim también es estético y lo hace mucho más divertido de escribir plantillas. Ya que se puede utilizar slim como un gota en el reemplazo de todo el marco principal se puede empezar fácilmente.
+La arquitectura Slim es muy flexible y permite escribir extensiones y plugins de sintaxis.
 
-####Instalando Handlebars
+Sí, Slim es rápido! slim fue desarrollado desde el principio con el rendimiento en mente. Los puntos de referencia se realizan para cada confirmación en http://travis-ci.org/slim-template/slim. No te fíes de los números? Eso es como debe ser. Por favor, intente la tarea rake referencia a ti mismo!
 
-La forma más sencilla de instalar Handlebars.js es descargar la última versión del proyecto en Github, que actualmente va por la beta 6 de la versión 1.0. La inclusión es similar a la que haríamos con cualquier script:
-
-####Ejemplos
-
-Handlebars es realmente sencillo de usar y en los ejemplos que usaré para acompañar la explicación, veréis que la propia plantilla queda encapsulada en una etiqueta script con un tipo que el navegador no puede reconocer x-handlebars-template. Las variables y expresiones en Handlebars van encapsuladas entre dos llaves {{ y }}.
+Sin embargo, en nuestra opinión debería usar delgado debido a sus características y sintaxis. Acabamos de garantizar que Slim no tiene un impacto negativo en el rendimiento de la aplicación.
 
 
-Ejemplo 1 – Hola mundo Función 13
 
-Esta es nuestra plantilla:
+Ejemplo de sintaxis
 
-<html>
-
-    <script id="nuestra-plantilla" type="text/x-handlebars-template">
-        <p>Hola {{usuario}}</p>
-    </script>
-
-</html>
-
-####Ahora tenemos que compilar la plantilla:
+Aquí está un ejemplo rápido para demostrar lo que una plantilla slim se ve así:
 
 <html>
 
-    <script>
-        var fuente = $('#nuestra-plantilla').html();
-        var plantilla = Handlebars.compile(fuente);
-    </script>
+    <head>
+        title Slim Examples
+        meta name="keywords" content="template language"
+        meta name="author" content=author
+        link rel="icon" type="image/png" href=file_path("favicon.png")
+        javascript:
+          alert('Slim supports embedded javascript!')
+    </head>
+      
+    <body>
+  
+        h1 Markup examples
     
-</html>
-
-
-Ahora tenemos que pasar los datos, para ello voy a incluirlo en una variable, pero esta puede venir de cualquier sitio. Posteriormente vamos convertirla en HTML y adjuntarla al DOM.
-
-<html>
-
-    <script>
-        var datos = {usuario : 'Función 13'};
-        var html = plantilla(datos);
-        $('#contenido').html(html);
-    </script>
+        #content
+          p This example shows you how a basic Slim file looks.
     
-</html>
-
-Lo cual resulta en:
-
-<html>
-
-    <p>Hola Función 13</p>
-
-</html>
-
-  ejemplo 2 Una lista : 
-
-En el siguiente ejemplo vamos a ir un poco más lejos y vamos a iterar sobre un objeto JavaScript creando una lista de usuarios. Quizá este sea el uso más común:
-
-<html>
-
-<ul>
-{{#each this}}
-    <li><strong>Usuario</strong>: {{nombre}}
-        <ul>
-            <li><strong>Edad</strong>: {{edad}}</li>
-        </ul>     
-    </li>
-{{/each}}
-</ul>
-</html>
-
-Y los datos:
-
-<html>
-
-    <script>
+        == yield
     
-        var datos = [
-            {
-                nombre: 'Matusalén',
-                edad: 'Desconocida'
-            },
-            {
-                nombre: 'Madonna',
-                edad: 60
-            }
-        ];
+        - if items.any?
+          table#items
+            - for item in items
+              tr
+                td.name = item.name
+                td.price = item.price
+        - else
+          p No items found. Please add some inventory.
+            Thank you!
     
-    </script>
-    
+        div id="footer"
+          == render 'footer'
+          | Copyright &copy; #{@year} #{@author}
+    </body>
+      
 </html>
 
 
-var datos = [
-    {
-        nombre: 'Matusalén',
-        edad: 'Desconocida'
-    },
-    {
-        nombre: 'Madonna',
-        edad: 60
-    }
-];
+ Asuntos de sangría, pero la profundidad de penetración se pueden elegir a su gusto. Si quieres primer guión 2 espacios, luego 5 espacios, es tu elección. Para anidar marcado sólo necesitas guión por un espacio, el resto es salsa.
 
-Tendremos lo que buscábamos:
+
+ Verbatim text | :
+
+ La tubería dice Delgado para copiar sólo la línea. En esencia, escapa a cualquier procesamiento. Cada línea siguiente que se sangría mayor que la tubería se copia.
+
+<pre>
+ body
+  p
+    |
+      This is a test of the text block.
+      
+</pre>
+
+ Inline html <  
+
+ Usted puede escribir etiquetas HTML directamente en delgado que le permite escribir sus plantillas en una más html como el estilo con etiquetas de cierre o mezclar html y estilo Slim. Los principales <obras como un implícito |:
+
 <html>
 
-    <ul>
-     
-        <li><strong>Usuario</strong>: Matusalén
-            <ul>
-                <li><strong>Edad</strong>: Desconocida</li>
-            </ul>        
-        </li>
-     
-        <li><strong>Usuario</strong>: Madonna
-            <ul>
-                <li><strong>Edad</strong>: 60</li>
-            </ul>        
-        </li>
-     
-    </ul>
+  <body>
+    - if articles.empty?
+    - else
+      table
+        - articles.each do |a|
+          <tr><td>#{a.name}</td><td>#{a.description}</td></tr>
+  </body>
+  
 </html>
 
-El bloque each, lo que hace es iterar sobre cada objeto (en este caso le pasamos como contexto el objeto completo this) y usar los datos que le estamos facilitando.
+
+
+atributos
+
+Usted escribe atributos directamente después de la etiqueta. Para los atributos de texto normal, debe utilizar comillas dobles "" o individuales (atributos entre comillas
+
+
+    a href="http://slim-lang.com" title='Slim Homepage' Goto the Slim homepage
+
+
+
+
+
+atributos wrapper 
+
+Si un delimitador hace la sintaxis más legible para usted, puede utilizar los caracteres {...}, (...), [...] para envolver los atributos. Puede configurar estos símbolos (véase la opción: attr_list_delims).
+
+
+body
+  h1(id="logo") = page_logo
+  h2[id="tagline" class="small tagline"] = page_tagline
+
+
+  Si envuelve los atributos, puede distribuirlos a través de varias líneas:
+
+
+  h2[id="tagline"
+   class="small tagline"] = page_tagline
+
+
+
+
+   Usted puede usar los espacios alrededor de las envolturas y assignments:
+
+
+			h1 id = "logo" = page_logo
+			h2 [ id = "tagline" ] = page_tagline
+
+
+
+
+
+
+		Configuración Slim :
+
+		Slim y el marco Temple subyacente son altamente configurable. La manera cómo se configure slim depende un poco sobre el mecanismo de compilación (Rails o inclinación). Siempre es posible establecer opciones predeterminadas por clase slim :: Engine. Esto se puede hacer en los archivos de entorno de Rails. Por ejemplo, en config / entornos / development.rb es probable que desee:
